@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+/build/
+/dist/
+=======
+
+BD/derby.log
+*.class
+*.jar
+*.dat
+build/built-jar.properties
+BD/paterns/db.lck
+dist/README.TXT
+>>>>>>> master
