@@ -1,7 +1,7 @@
 package com.patern.ui;
 
-import com.patern.dao.Connect;
-import com.patern.dao.PaternsDAO;
+import com.patern.data.Connect;
+import com.patern.data.dao.PaternsDAO;
 import com.patern.model.Paterns;
 import java.awt.Component;
 import java.io.File;

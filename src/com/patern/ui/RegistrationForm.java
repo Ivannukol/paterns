@@ -5,6 +5,7 @@
  */
 package com.patern.ui;
 
+import com.patern.ui.authorization.Authorization;
 import com.sun.xml.internal.ws.api.message.Message;
 import javax.swing.JOptionPane;
 

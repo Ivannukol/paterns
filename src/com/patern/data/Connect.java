@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.patern.dao;
+package com.patern.data;
 
 import com.patern.model.Paterns;
 import java.sql.Connection;
@@ -21,8 +21,8 @@ import java.util.logging.Logger;
  */
 public class Connect {
 
-      public static String DB = "jdbc:derby:" + System.getProperty("user.dir") + "/BD/paterns;create=true";
-    //public static String DB = "jdbc:derby://localhost:1527/paterns";
+      //public static String DB = "jdbc:derby:" + System.getProperty("user.dir") + "/BD/paterns;create=true";
+    public static String DB = "jdbc:derby://localhost:1527/users";
 
   
 
