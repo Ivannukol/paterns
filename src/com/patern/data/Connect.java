@@ -5,13 +5,9 @@
  */
 package com.patern.data;
 
-import com.patern.model.Paterns;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,12 +17,16 @@ import java.util.logging.Logger;
  */
 public class Connect {
 
-      //public static String DB = "jdbc:derby:" + System.getProperty("user.dir") + "/BD/paterns;create=true";
-    public static String DB = "jdbc:derby://localhost:1527/users";
+    private Connect() {
+    }
 
-  
+    public static Connection getInstance() {
+        Connect con = new Connect();
+        return con.getConnection();
+    }
+    public String DB = "jdbc:derby:" + System.getProperty("user.dir") + "/BD/paterns;create=true";
 
-    public static Connection getConnection() {
+    public Connection getConnection() {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
         } catch (ClassNotFoundException ex) {
@@ -40,4 +40,9 @@ public class Connect {
         }
     }
 
+    private static class NewSingletonHolder {
+
+        private static final Connect INSTANCE = new Connect();
+
+    }
 }

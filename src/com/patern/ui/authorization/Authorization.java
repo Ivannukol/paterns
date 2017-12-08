@@ -6,9 +6,8 @@
 package com.patern.ui.authorization;
 
 import com.patern.data.pojo.User;
-import com.patern.ui.RegistrationForm;
 import com.patern.ui.Student;
-import com.patern.ui.Teacher;
+import com.patern.ui.Teachers.Teacher;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,12 +37,12 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
 
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        image = new javax.swing.JLabel();
+        labelUserName = new javax.swing.JLabel();
+        labelPassword = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
         signin = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        register = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
         userName = new javax.swing.JTextField();
 
@@ -56,33 +55,33 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(377, 100));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/patern/ui/images/capture.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/patern/ui/images/capture.jpg"))); // NOI18N
+        image.setText("jLabel4");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel4)
+                .addComponent(image)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(image, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("user");
+        labelUserName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelUserName.setForeground(new java.awt.Color(255, 255, 255));
+        labelUserName.setText("user");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("password");
+        labelPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelPassword.setForeground(new java.awt.Color(255, 255, 255));
+        labelPassword.setText("password");
 
-        jLabel3.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Sign in");
+        title.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setText("Sign in");
 
         signin.setBackground(new java.awt.Color(153, 153, 153));
         signin.setForeground(new java.awt.Color(102, 102, 102));
@@ -93,11 +92,11 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
             }
         });
 
-        jLabel5.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel5.setText("Register new user");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        register.setForeground(new java.awt.Color(51, 102, 255));
+        register.setText("Register new user");
+        register.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                registerMouseClicked(evt);
             }
         });
 
@@ -114,20 +113,20 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(jLabel3)
+                        .addComponent(title)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
+                                    .addComponent(labelUserName)
+                                    .addComponent(labelPassword)
                                     .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                                     .addComponent(userName))
                                 .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addComponent(signin)
@@ -137,19 +136,19 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel3)
+                .addComponent(title)
                 .addGap(46, 46, 46)
-                .addComponent(jLabel1)
+                .addComponent(labelUserName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(signin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(register)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,11 +175,11 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
         presenter.login();
     }//GEN-LAST:event_signinActionPerformed
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        // TODO add your handling code here:
+    private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
+
         new RegistrationForm().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_registerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -218,15 +217,15 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel image;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel labelPassword;
+    private javax.swing.JLabel labelUserName;
     private javax.swing.JPasswordField password;
+    private javax.swing.JLabel register;
     private javax.swing.JButton signin;
+    private javax.swing.JLabel title;
     private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 
@@ -259,4 +258,23 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
     public void showError(String message) {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
+
+    @Override
+    public void goToMainScreen(User user) {
+//        switch (user) //TODO OPEN NEW SCREEN
+//        {
+//            case STUDENT: {
+//                new Student().setVisible(true);
+//
+//                break;
+//            }
+//            case TEACHER: {
+//                new Teacher().setVisible(true);
+//                break
+//            }
+//            
+//        }
+
+    }
+
 }

@@ -22,4 +22,8 @@ public interface RepositoryInterface<T> {
 
     boolean delete(T item) throws SQLException;
 
+    void registerDataChangeObserver(Repository.DataChangeObserverListener<T> listener);
+
+    void unregisterDataChangeObserver(Repository.DataChangeObserverListener<T> listener);
+
 }
