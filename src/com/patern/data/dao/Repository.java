@@ -60,53 +60,7 @@ public class Repository<T> implements RepositoryInterface<T> {
         observer.delete(listener);
     }
 
-    public interface DataChangeObserverListener<T> {
 
-        void onItemItsert(T item, boolean result);
-
-        void onItemDelete(T item, boolean result);
-
-        void onItemUpdate(T item, boolean result);
-
-    }
-
-    public class DataChangeObserver<T> implements DataChangeObserverListener<T> {
-
-        private List<DataChangeObserverListener<T>> list;
-
-        public DataChangeObserver() {
-            list = new ArrayList();
-        }
-
-        public void add(DataChangeObserverListener<T> listener) {
-            list.add(listener);
-        }
-
-        public void delete(DataChangeObserverListener<T> listener) {
-            list.remove(listener);
-        }
-
-        @Override
-        public void onItemItsert(T item, boolean result) {
-            for (DataChangeObserverListener i : list) {
-                i.onItemItsert(item, result);
-            }
-        }
-
-        @Override
-        public void onItemDelete(T item, boolean result) {
-            for (DataChangeObserverListener i : list) {
-                i.onItemDelete(item, result);
-            }
-        }
-
-        @Override
-        public void onItemUpdate(T item, boolean result) {
-            for (DataChangeObserverListener i : list) {
-                i.onItemUpdate(item, result);
-            }
-        }
-
-    }
+    
 
 }
