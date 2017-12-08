@@ -1,15 +1,9 @@
-package com.patern.ui;
+package com.patern.ui.Teachers;
 
-import com.patern.data.Connect;
-import com.patern.data.dao.PaternsDAO;
 import com.patern.model.Paterns;
 import java.awt.Component;
 import java.io.File;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JTable;
@@ -17,20 +11,16 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
-public final class Teacher extends javax.swing.JFrame {
+public final class Teacher extends javax.swing.JFrame implements TeachersView {
 
     ArrayList<Paterns> paterns = new ArrayList<>();
+    TeacherPresentor presenter;
 
     public Teacher() {
-        try {
-            initComponents();
-            Connection con = Connect.getConnection();
-            PaternsDAO paternsdao = new PaternsDAO(con);
-            paterns = paternsdao.Select();
-        } catch (SQLException ex) {
-            Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Select();
+
+        initComponents();
+        presenter = new TeacherPresentor(this);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -165,6 +155,7 @@ public final class Teacher extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -179,4 +170,29 @@ public final class Teacher extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public String getid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getpaterns() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String gettype_parent() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getsort_parent() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void showError(String message) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

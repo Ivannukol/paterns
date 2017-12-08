@@ -3,29 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.patern.ui.authorization;
+package com.patern.ui.Teachers;
 
-import com.patern.data.pojo.User;
+import com.patern.ui.authorization.*;
 import com.patern.data.pojo.User.Type;
 
 /**
  *
  * @author abrel
  */
-public interface AuthorizationView {
+public interface TeachersView {
 
-    String getUserName();
+    String getid();
 
-    String getPassword();
+    String getpaterns();
 
-    String getFirstName();
+    String gettype_parent();
 
-    String getLastName();
-
-    Type getTypeUser();
+    String getsort_parent();
 
     void showError(String message);
-
-    void goToMainScreen(User user);
-    
 }

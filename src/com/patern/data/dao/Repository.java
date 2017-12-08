@@ -50,6 +50,16 @@ public class Repository<T> implements RepositoryInterface<T> {
         return result;
     }
 
+    @Override
+    public void registerDataChangeObserver(DataChangeObserverListener<T> listener) {
+        observer.add(listener);
+    }
+
+    @Override
+    public void unregisterDataChangeObserver(DataChangeObserverListener<T> listener) {
+        observer.delete(listener);
+    }
+
     public interface DataChangeObserverListener<T> {
 
         void onItemItsert(T item, boolean result);
