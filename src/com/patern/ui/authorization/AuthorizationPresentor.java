@@ -27,7 +27,7 @@ public class AuthorizationPresentor {
 
     public AuthorizationPresentor(AuthorizationView view) {
         this.view = view;
-        rep = new Repository<>(new UserTable(Connect.getInstance()));
+        rep = new Repository<>(new UserTable(Connect.getInstance().getConnection()));
     }
 
     public void login() {

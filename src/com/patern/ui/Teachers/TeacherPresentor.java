@@ -22,7 +22,7 @@ public class TeacherPresentor {
 
     public TeacherPresentor(TeachersView view) {
         this.view = view;
-        rep = new Repository<>(new PaternsTabel(Connect.getInstance()));
+        rep = new Repository<>(new PaternsTabel(Connect.getInstance().getConnection()));
     }
 
     public void login() {

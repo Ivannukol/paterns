@@ -19,10 +19,13 @@ public class Connect {
 
     private Connect() {
     }
+    private static Connect con;
 
-    public static Connection getInstance() {
-        Connect con = new Connect();
-        return con.getConnection();
+    public static Connect getInstance() {
+        if (con == null) {
+            con = new Connect();
+        }
+        return con;
     }
     public String DB = "jdbc:derby:" + System.getProperty("user.dir") + "/BD/paterns;create=true";
 
@@ -40,9 +43,4 @@ public class Connect {
         }
     }
 
-    private static class NewSingletonHolder {
-
-        private static final Connect INSTANCE = new Connect();
-
-    }
 }
