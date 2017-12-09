@@ -19,6 +19,8 @@ public interface RepositoryInterface<T> {
     boolean update(T item) throws SQLException;
 
     ArrayList<T> getAll() throws SQLException;
+    
+    ArrayList<T> get(Request<T> request) throws SQLException;
 
     boolean delete(T item) throws SQLException;
 

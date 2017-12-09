@@ -7,6 +7,7 @@ package com.patern.ui.authorization;
 
 import com.patern.data.Connect;
 import com.patern.data.dao.Repository;
+import com.patern.data.dao.Request;
 import com.patern.data.dao.UserTable;
 import com.patern.data.pojo.User;
 import java.sql.SQLException;
@@ -30,10 +31,14 @@ public class AuthorizationPresentor {
     }
 
     public void login() {
-        try {
-            User user = rep.getAll().stream()
-                    .filter(c -> c.getUserName().equals(view.getUserName()) && c.getPassword().equals(view.getPassword()))
-                    .findFirst().orElse(null);
+        try { 
+            User user = rep.get(new Request.Builder<User>(User.class)
+                    .where(UserTable.Fields.USERNAME, view.getUserName())
+                    .where(UserTable.Fields.PASSWORD, view.getPassword())
+                    .build())
+                    .stream()
+                    .findFirst()
+                    .orElse(null);
             if (user != null) {
                 view.goToMainScreen(user);
             } else {

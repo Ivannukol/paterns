@@ -70,4 +70,9 @@ public class PaternsTabel implements Table<Paterns> {
         return ste.execute();
     }
 
+    @Override
+    public ArrayList<Paterns> get(Request<Paterns> request) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

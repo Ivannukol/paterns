@@ -49,18 +49,7 @@ public class UserTable implements Table<User> {
         ArrayList<User> users = new ArrayList<>();
         PreparedStatement ste = con.prepareStatement("SELECT * From USERS");
         ResultSet res = ste.executeQuery();
-        while (res.next()) {
-            User item = new User();
-
-            item.setId(res.getInt("id"));
-            item.setUserName(res.getString("userName"));
-            item.setPassword(res.getString("password"));
-            item.setFirstName(res.getString("firstName"));
-            item.setLastName(res.getString("lastName"));
-            item.setType(res.getInt("typeUser") == 0 ? Type.STUDENT : Type.TEACHER);
-
-            users.add(item);
-        }
+         getResult(users, res);
         return users;
     }
 
@@ -68,6 +57,40 @@ public class UserTable implements Table<User> {
     public boolean delete(User item) throws SQLException {
         PreparedStatement ste = con.prepareStatement("DELETE from USERS WHERE id=" + item.getId());
         return ste.execute();
+    }
+
+    @Override
+    public ArrayList<User> get(Request<User> request) throws SQLException {
+        ArrayList<User> users = new ArrayList<>();
+        PreparedStatement ste = con.prepareStatement(request.getSQL());
+        ResultSet res = ste.executeQuery();
+        getResult(users, res);
+        return users;
+    }
+
+    private void getResult(ArrayList<User> users, ResultSet res) throws SQLException {
+        while (res.next()) {
+            User item = new User();
+
+            item.setId(res.getInt(Fields.ID));
+            item.setUserName(res.getString(Fields.USERNAME));
+            item.setPassword(res.getString(Fields.PASSWORD));
+            item.setFirstName(res.getString(Fields.FIRSTNAME));
+            item.setLastName(res.getString(Fields.LASTNAME));
+            item.setType(res.getInt(Fields.TYPEUSER) == 0 ? Type.STUDENT : Type.TEACHER);
+
+            users.add(item);
+        }
+    }
+
+    public interface Fields {
+
+        public String ID = "id";
+        public String USERNAME = "userName";
+        public String PASSWORD = "password";
+        public String FIRSTNAME = "firstName";
+        public String LASTNAME = "lastName";
+        public String TYPEUSER = "typeUser";
     }
 
 }

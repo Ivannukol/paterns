@@ -60,7 +60,9 @@ public class Repository<T> implements RepositoryInterface<T> {
         observer.delete(listener);
     }
 
-
-    
+    @Override
+    public ArrayList<T> get(Request<T> request) throws SQLException {
+        return table.get(request);
+    }
 
 }
