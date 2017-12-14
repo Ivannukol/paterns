@@ -3,7 +3,10 @@ package com.patern.ui.Teachers;
 import com.patern.model.Paterns;
 import java.awt.Component;
 import java.io.File;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JTable;
@@ -13,14 +16,17 @@ import javax.swing.table.TableColumn;
 
 public final class Teacher extends javax.swing.JFrame implements TeachersView {
 
-    ArrayList<Paterns> paterns = new ArrayList<>();
+    ArrayList<Paterns> paterns ;
     TeacherPresentor presenter;
 
-    public Teacher() {
+    public Teacher() throws SQLException {
 
         initComponents();
         presenter = new TeacherPresentor(this);
-        
+        paterns = presenter.getAll();
+        Select();
+        avtoColums();
+        avtoColums();
     }
 
     @SuppressWarnings("unchecked")
@@ -160,7 +166,11 @@ public final class Teacher extends javax.swing.JFrame implements TeachersView {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Teacher().setVisible(true);
+                try {
+                    new Teacher().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
