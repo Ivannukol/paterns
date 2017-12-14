@@ -3,20 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.patern.ui;
+package com.patern.ui.student;
+
+import com.patern.data.pojo.Paterns;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.function.Function;
+import java.util.stream.Stream;
+import static javafx.scene.input.KeyCode.R;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ActionMap;
+import javax.swing.DefaultListModel;
+import javax.swing.DropMode;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
+import javax.swing.TransferHandler;
 
 /**
  *
  * @author Ivan
  */
-public class Student extends javax.swing.JFrame {
+public class Student extends javax.swing.JFrame implements StudentView {
 
     /**
      * Creates new form student
      */
     public Student() {
         initComponents();
-       jPanel2.setVisible(false);
+        list.setCellRenderer(new ListCellRenderer<Paterns>() {
+            @Override
+            public Component getListCellRendererComponent(JList<? extends Paterns> list, Paterns value, int index, boolean isSelected, boolean cellHasFocus) {
+                JLabel label = (JLabel) this.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                label.setIcon(new ImageIcon(value.getPaterns()));
+                return label;
+
+            }
+
+        });
     }
 
     /**
@@ -33,7 +62,9 @@ public class Student extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        list = new javax.swing.JList<>();
+        cheak = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(30, 30, 30));
@@ -59,16 +90,29 @@ public class Student extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Теоретичний матеріал");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 346, Short.MAX_VALUE)
-        );
+        list.getSelectionModel().setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        list.setDropMode(DropMode.INSERT);
+        list.setDragEnabled(true);
+        list.setTransferHandler(new ListItemTransferHandler());
+
+        //Disable row Cut, Copy, Paste
+        ActionMap map = list.getActionMap();
+        Action dummy = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /* Dummy action */ }
+        };
+        map.put(TransferHandler.getCutAction().getValue(Action.NAME), dummy);
+        map.put(TransferHandler.getCopyAction().getValue(Action.NAME), dummy);
+        map.put(TransferHandler.getPasteAction().getValue(Action.NAME), dummy);
+        jScrollPane1.setViewportView(list);
+
+        cheak.setText("jButton1");
+        cheak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cheakActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,10 +128,16 @@ public class Student extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(0, 28, Short.MAX_VALUE))))
+                        .addComponent(jLabel3)
+                        .addGap(0, 584, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cheak)
+                .addGap(86, 86, 86))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,9 +150,11 @@ public class Student extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(4, 4, 4)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cheak)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -112,8 +164,18 @@ public class Student extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-       jPanel2.setVisible(true);
+
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void cheakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheakActionPerformed
+        for (int i = 0; i < list.getModel().getSize() - 1; i++) {
+            if (list.getModel().getElementAt(i + 1).getSortPatern() - list.getModel().getElementAt(i).getSortPatern() == 1) {
+
+            } else {
+                //TODO Show Error
+            }
+        }
+    }//GEN-LAST:event_cheakActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,11 +214,28 @@ public class Student extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cheak;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<Paterns> list;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void getPattern() {
+
+    }
+
+    @Override
+    public void setData(ArrayList<Paterns> data) {
+        DefaultListModel listModel = new DefaultListModel<Paterns>();
+        data.stream().forEach((i) -> {
+            listModel.addElement(i);
+        });
+        list.setModel(listModel);
+
+    }
 }

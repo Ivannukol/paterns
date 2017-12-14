@@ -1,6 +1,6 @@
 package com.patern.ui.Teachers;
 
-import com.patern.model.Paterns;
+import com.patern.data.pojo.Paterns;
 import java.awt.Component;
 import java.io.File;
 import java.sql.SQLException;
@@ -82,8 +82,8 @@ public final class Teacher extends javax.swing.JFrame implements TeachersView {
         Object[][] data = new Object[paterns.size()][3];
         for (int i = 0; i < paterns.size(); i++) {
             data[i][0] = new ImageIcon(paterns.get(i).getPaterns());
-            data[i][1] = paterns.get(i).getType_parent();
-            data[i][2] = paterns.get(i).getSort_patern();
+            data[i][1] = paterns.get(i).getTypeParent();
+            data[i][2] = paterns.get(i).getSortPatern();
         }
         String h1[] = {"Патерн", "Тип патерну", "Сорт патерну"};
         DefaultTableModel model = new DefaultTableModel(data, h1) {

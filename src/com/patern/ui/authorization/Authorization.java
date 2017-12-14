@@ -6,7 +6,7 @@
 package com.patern.ui.authorization;
 
 import com.patern.data.pojo.User;
-import com.patern.ui.Student;
+import com.patern.ui.student.Student;
 import com.patern.ui.Teachers.Teacher;
 import java.sql.SQLException;
 import java.util.logging.Level;
