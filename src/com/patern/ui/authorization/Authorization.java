@@ -8,6 +8,9 @@ package com.patern.ui.authorization;
 import com.patern.data.pojo.User;
 import com.patern.ui.Student;
 import com.patern.ui.Teachers.Teacher;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -261,19 +264,23 @@ public class Authorization extends javax.swing.JFrame implements AuthorizationVi
 
     @Override
     public void goToMainScreen(User user) {
-//        switch (user) //TODO OPEN NEW SCREEN
-//        {
-//            case STUDENT: {
-//                new Student().setVisible(true);
-//
-//                break;
-//            }
-//            case TEACHER: {
-//                new Teacher().setVisible(true);
-//                break
-//            }
-//            
-//        }
+        
+        switch (user.getType()) 
+        {
+            case STUDENT:{
+                new Student().setVisible(true);
+                break;
+            }
+            case TEACHER: {
+            try {
+                new Teacher().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(Authorization.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                break;
+            }
+            
+        }
 
     }
 
