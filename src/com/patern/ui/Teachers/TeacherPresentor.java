@@ -10,6 +10,8 @@ import com.patern.data.dao.PaternsTabel;
 import com.patern.data.dao.Repository;
 import com.patern.data.pojo.User;
 import com.patern.model.Paterns;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -29,4 +31,8 @@ public class TeacherPresentor {
 
     }
 
+    public ArrayList<Paterns> getAll() throws SQLException {
+        ArrayList<Paterns> teacher = rep.getAll();
+        return teacher;
+    }
 }
