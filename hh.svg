@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="214px" preserveAspectRatio="none" style="width:264px;height:214px;background:#000000;" version="1.1" viewBox="0 0 264 214" width="264px" zoomAndPan="magnify">
+    <defs/>
+    <g>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="140" x="5" y="19.5332">Dot Executable: null</text>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="173" x="5" y="37.1426">No dot executable found</text>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="258" x="5" y="54.752">Cannot find Graphviz. You should try</text>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="72.3613"/>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="71" x="5" y="89.9707">@startuml</text>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="50" x="5" y="107.5801">testdot</text>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="66" x="5" y="125.1895">@enduml</text>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="142.7988"/>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="15" x="9" y="160.4082">or</text>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="178.0176"/>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="201" x="5" y="195.627">java -jar plantuml.jar -testdot</text>
+        <text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="213.2363"/>
+        <!--
+@startuml
+annotation java.lang.SuppressWarnings
+class com.patern.dao.Connect
+class com.patern.dao.PaternsDAO
+class com.patern.logic.Logic
+class com.patern.model.Paterns
+class com.patern.ui.Authorization
+class com.patern.ui.RegistrationForm
+class com.patern.ui.Teacher
+class com.patern.ui.student
+class com.sun.xml.internal.ws.api.message.Message
+class java.awt.Component
+class java.io.File
+class java.sql.Connection
+class java.sql.DriverManager
+class java.sql.PreparedStatement
+class java.sql.ResultSet
+class java.sql.SQLException
+class java.util.ArrayList
+class java.util.Arrays
+class java.util.logging.Level
+class java.util.logging.Logger
+class javafx.scene.control.PasswordField
+class javax.imageio.ImageIO
+class javax.swing.ImageIcon
+class javax.swing.JFileChooser
+class javax.swing.JFrame
+class javax.swing.JLabel
+class javax.swing.JOptionPane
+class javax.swing.JTable
+class javax.swing.table.DefaultTableModel
+class javax.swing.table.JTableHeader
+class javax.swing.table.TableColumn
+com.patern.dao.Connect ..> com.patern.model.Paterns
+com.patern.dao.Connect ..> java.sql.Connection
+com.patern.dao.Connect ..> java.sql.DriverManager
+com.patern.dao.Connect ..> java.sql.PreparedStatement
+com.patern.dao.Connect ..> java.sql.SQLException
+com.patern.dao.Connect ..> java.util.ArrayList
+com.patern.dao.Connect ..> java.util.Arrays
+com.patern.dao.Connect ..> java.util.logging.Level
+com.patern.dao.Connect ..> java.util.logging.Logger
+com.patern.dao.PaternsDAO ..> com.patern.model.Paterns
+com.patern.dao.PaternsDAO ..> java.sql.Connection
+com.patern.dao.PaternsDAO ..> java.sql.PreparedStatement
+com.patern.dao.PaternsDAO ..> java.sql.ResultSet
+com.patern.dao.PaternsDAO ..> java.sql.SQLException
+com.patern.dao.PaternsDAO ..> java.util.ArrayList
+com.patern.ui.Authorization ..> java.lang.SuppressWarnings
+com.patern.ui.Authorization ..> javafx.scene.control.PasswordField
+com.patern.ui.Authorization ..> javax.imageio.ImageIO
+com.patern.ui.Authorization ..> javax.swing.ImageIcon
+com.patern.ui.Authorization - -|> javax.swing.JFrame
+com.patern.ui.Authorization ..> javax.swing.JLabel
+com.patern.ui.RegistrationForm ..> java.lang.SuppressWarnings
+com.patern.ui.RegistrationForm ..> com.sun.xml.internal.ws.api.message.Message
+com.patern.ui.RegistrationForm - -|> javax.swing.JFrame
+com.patern.ui.RegistrationForm ..> javax.swing.JOptionPane
+com.patern.ui.Teacher ..> java.lang.SuppressWarnings
+com.patern.ui.Teacher ..> com.patern.dao.Connect
+com.patern.ui.Teacher ..> com.patern.dao.PaternsDAO
+com.patern.ui.Teacher ..> com.patern.model.Paterns
+com.patern.ui.Teacher ..> java.awt.Component
+com.patern.ui.Teacher ..> java.io.File
+com.patern.ui.Teacher ..> java.sql.Connection
+com.patern.ui.Teacher ..> java.sql.SQLException
+com.patern.ui.Teacher ..> java.util.ArrayList
+com.patern.ui.Teacher ..> java.util.logging.Level
+com.patern.ui.Teacher ..> java.util.logging.Logger
+com.patern.ui.Teacher ..> javax.swing.ImageIcon
+com.patern.ui.Teacher ..> javax.swing.JFileChooser
+com.patern.ui.Teacher - -|> javax.swing.JFrame
+com.patern.ui.Teacher ..> javax.swing.JTable
+com.patern.ui.Teacher ..> javax.swing.table.DefaultTableModel
+com.patern.ui.Teacher ..> javax.swing.table.JTableHeader
+com.patern.ui.Teacher ..> javax.swing.table.TableColumn
+com.patern.ui.student ..> java.lang.SuppressWarnings
+com.patern.ui.student - -|> javax.swing.JFrame
+@enduml
+
+PlantUML version 2017.11(Wed Apr 19 19:18:59 EEST 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_131-b11
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: Cp1251
+Language: uk
+Country: UA
+-->
+    </g>
+</svg>

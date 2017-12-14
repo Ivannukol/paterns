@@ -1,0 +1,79 @@
+@startuml
+annotation java.lang.SuppressWarnings
+class com.patern.dao.Connect
+class com.patern.dao.PaternsDAO
+class com.patern.logic.Logic
+class com.patern.model.Paterns
+class com.patern.ui.Authorization
+class com.patern.ui.RegistrationForm
+class com.patern.ui.Teacher
+class com.patern.ui.student
+class com.sun.xml.internal.ws.api.message.Message
+class java.awt.Component
+class java.io.File
+class java.sql.Connection
+class java.sql.DriverManager
+class java.sql.PreparedStatement
+class java.sql.ResultSet
+class java.sql.SQLException
+class java.util.ArrayList
+class java.util.Arrays
+class java.util.logging.Level
+class java.util.logging.Logger
+class javafx.scene.control.PasswordField
+class javax.imageio.ImageIO
+class javax.swing.ImageIcon
+class javax.swing.JFileChooser
+class javax.swing.JFrame
+class javax.swing.JLabel
+class javax.swing.JOptionPane
+class javax.swing.JTable
+class javax.swing.table.DefaultTableModel
+class javax.swing.table.JTableHeader
+class javax.swing.table.TableColumn
+com.patern.dao.Connect ..> com.patern.model.Paterns
+com.patern.dao.Connect ..> java.sql.Connection
+com.patern.dao.Connect ..> java.sql.DriverManager
+com.patern.dao.Connect ..> java.sql.PreparedStatement
+com.patern.dao.Connect ..> java.sql.SQLException
+com.patern.dao.Connect ..> java.util.ArrayList
+com.patern.dao.Connect ..> java.util.Arrays
+com.patern.dao.Connect ..> java.util.logging.Level
+com.patern.dao.Connect ..> java.util.logging.Logger
+com.patern.dao.PaternsDAO ..> com.patern.model.Paterns
+com.patern.dao.PaternsDAO ..> java.sql.Connection
+com.patern.dao.PaternsDAO ..> java.sql.PreparedStatement
+com.patern.dao.PaternsDAO ..> java.sql.ResultSet
+com.patern.dao.PaternsDAO ..> java.sql.SQLException
+com.patern.dao.PaternsDAO ..> java.util.ArrayList
+com.patern.ui.Authorization ..> java.lang.SuppressWarnings
+com.patern.ui.Authorization ..> javafx.scene.control.PasswordField
+com.patern.ui.Authorization ..> javax.imageio.ImageIO
+com.patern.ui.Authorization ..> javax.swing.ImageIcon
+com.patern.ui.Authorization --|> javax.swing.JFrame
+com.patern.ui.Authorization ..> javax.swing.JLabel
+com.patern.ui.RegistrationForm ..> java.lang.SuppressWarnings
+com.patern.ui.RegistrationForm ..> com.sun.xml.internal.ws.api.message.Message
+com.patern.ui.RegistrationForm --|> javax.swing.JFrame
+com.patern.ui.RegistrationForm ..> javax.swing.JOptionPane
+com.patern.ui.Teacher ..> java.lang.SuppressWarnings
+com.patern.ui.Teacher ..> com.patern.dao.Connect
+com.patern.ui.Teacher ..> com.patern.dao.PaternsDAO
+com.patern.ui.Teacher ..> com.patern.model.Paterns
+com.patern.ui.Teacher ..> java.awt.Component
+com.patern.ui.Teacher ..> java.io.File
+com.patern.ui.Teacher ..> java.sql.Connection
+com.patern.ui.Teacher ..> java.sql.SQLException
+com.patern.ui.Teacher ..> java.util.ArrayList
+com.patern.ui.Teacher ..> java.util.logging.Level
+com.patern.ui.Teacher ..> java.util.logging.Logger
+com.patern.ui.Teacher ..> javax.swing.ImageIcon
+com.patern.ui.Teacher ..> javax.swing.JFileChooser
+com.patern.ui.Teacher --|> javax.swing.JFrame
+com.patern.ui.Teacher ..> javax.swing.JTable
+com.patern.ui.Teacher ..> javax.swing.table.DefaultTableModel
+com.patern.ui.Teacher ..> javax.swing.table.JTableHeader
+com.patern.ui.Teacher ..> javax.swing.table.TableColumn
+com.patern.ui.student ..> java.lang.SuppressWarnings
+com.patern.ui.student --|> javax.swing.JFrame
+@enduml
